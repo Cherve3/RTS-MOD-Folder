@@ -1,0 +1,1383 @@
+windowDef Desktop
+{
+	rect	0,0,640,480
+	backcolor	0,0,0,0
+	visible	1
+	menugui	1
+	definevec4	"corner"	0.564,0.603,0.286,0.4
+	definevec4	"corner_0"	0.564,0.603,0.286,0
+	definevec4	"white"	1,1,1,1
+	definevec4	"white_8"	1,1,1,0.8
+	definevec4	"white_4"	1,1,1,0.4
+	definevec4	"white_0"	1,1,1,0
+	definevec4	"black"	0,0,0,1
+	definevec4	"orange"	0.890,0.537,0,1
+	definevec4	"orange_0"	0.890,0.537,0,0
+	definevec4	"orange_4"	0.890,0.537,0,0.4
+	definevec4	"grey1_4"	0.435,0.435,0.435,0.4
+	definevec4	"yellow_8"	1,0.745,0.137,0.8
+	definevec4	"disabled"	0.5,0.5,0.5,0.5
+	definevec4	"enabled"	1,1,1,1
+	definevec4	"expensive"	1,0.2,0.2,1
+	definevec4	"ammorefill_icon_disabled"	0,0.5,0,0.5
+	definevec4	"ammorefill_icon_enabled"	0,1,0,1
+	definevec4	"lightarmor_icon_disabled"	0.5,0.5,0,0.5
+	definevec4	"lightarmor_icon_enabled"	1,1,0,1
+	definevec4	"heavyarmor_icon_disabled"	0.5,0,0,0.5
+	definevec4	"heavyarmor_icon_enabled"	1,0,0,1
+	definevec4	"typecolor"	1,0,0,1
+	definevec4	"typecolor_strogg"	0,1,0,1
+	definevec4	"healthicon_mp"	0.980,0.168,0.0196,0.8
+	definevec4	"armoricon_mp"	0.968,0.752,0.0156,0.8
+	definevec4	"buyButtonBackgroundColor"	0.545,0.588,0.294,0.4
+	definefloat	"titleBarTextAlpha"	0.5
+	definefloat	"titleBarText_offset_x"	32
+	definefloat	"titleBarText_offset_y"	0
+	definefloat	"titleBarRectWeapons_x"	10
+	definefloat	"titleBarRectWeapons_y"	100
+	definefloat	"titleBarRectArmorAmmo_x"	320
+	definefloat	"titleBarRectArmorAmmo_y"	desktop
+	windowDef mainBuyWindowDef
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef fullScreenFlatRect
+		{
+			rect	0,0,640,480
+			visible	1
+			backcolor	0,0,0,1
+		}
+		windowDef topBottomGradiant
+		{
+			rect	0,0,640,480
+			visible	1
+			background	"gfx/guis/mainmenu/bg_darkgrad"
+			matcolor	0,0,0,0
+		}
+		windowDef centerVerticalGradiant
+		{
+			rect	0,-150,640,780
+			visible	1
+			background	"gfx/guis/mainmenu/screen"
+			matcolor	0,0,0,1
+		}
+		windowDef plusGridLeft
+		{
+			rect	0,0,480,480
+			visible	1
+			background	"gfx/guis/mainmenu/bg_grid"
+			matcolor	1,1,1,0
+		}
+		windowDef plusGridRight
+		{
+			rect	480,0,480,480
+			visible	1
+			background	"gfx/guis/mainmenu/bg_grid"
+			matcolor	1,1,1,0
+		}
+		windowDef topBackgroundBarAnimStart
+		{
+			rect	-247,-129,1045,129
+			visible	1
+			background	"gfx/guis/mainmenu/topbar"
+			matcolor	1,1,1,0.4
+		}
+		windowDef bottomBackgroundBarAnimStart
+		{
+			rect	-198,481,1045,129
+			visible	1
+			background	"gfx/guis/mainmenu/btmbar"
+			matcolor	1,1,1,0.4
+		}
+		windowDef topBackgroundBarAnimEnd
+		{
+			rect	-75,-61,1045,129
+			visible	0
+			background	"gfx/guis/mainmenu/topbar"
+			matcolor	1,1,1,0.4
+		}
+		windowDef bottomBackgroundBarAnimEnd
+		{
+			rect	-25,386,1045,129
+			visible	0
+			background	"gfx/guis/mainmenu/btmbar"
+			matcolor	1,1,1,0.4
+		}
+		windowDef creditsText
+		{
+			rect	"desktop::creditsText_x","desktop::creditsText_y", 176, 40
+			visible	1
+			forecolor	1,1,1,0.8
+			text	"#str_222002"
+			font	"fonts/marine"
+			textstyle	1
+			textscale	0.4
+		}
+		windowDef creditsValue
+		{
+			rect	"desktop::creditsValue_x","desktop::creditsValue_y", 207, 40
+			visible	1
+			forecolor	1,1,1,0.8
+			text	"gui::resource_amount"
+			font	"fonts/marine"
+			textstyle	1
+			textscale	0.4
+		}
+		windowDef buyMenuTitleText
+		{
+			rect	39,19,314,16
+			visible	0
+			forecolor	1,1,1,0
+			text	"#str_222006"
+			textscale	.25
+			font	"fonts/marine"
+		}
+		windowDef titleBarWeapons
+		{
+			rect	"desktop::titleBarRectWeapons_x","desktop::titleBarRectWeapons_y","desktop::titleBarRect_width","desktop::titleBarRect_height"
+			visible	1
+			background	"gfx/guis/mainmenu/b3_light"
+			matcolor	0,0,0,1
+			matscaley	-1
+			windowDef titleBarWeaponsText
+			{
+				rect	"desktop::titleBarText_offset_x","desktop::titleBarText_offset_y","desktop::titleBarRect_width","desktop::titleBarRect_height"
+				visible	1
+				forecolor	1,1,1,"desktop::titleBarTextAlpha"
+				text	"#str_222003"
+				textscale	.35
+				font	"fonts/marine"
+			}
+		}
+		windowDef titleBarArmorAmmo
+		{
+			rect	"desktop::titleBarRectArmorAmmo_x","desktop::titleBarRectArmorAmmo_y","desktop::titleBarRect_width","desktop::titleBarRect_height"
+			visible	1
+			background	"gfx/guis/mainmenu/b3_light"
+			matcolor	0,0,0,1
+			matscaley	-1
+			windowDef titleBarArmorAmmoText
+			{
+				rect	"desktop::titleBarText_offset_x","desktop::titleBarText_offset_y","desktop::titleBarRect_width","desktop::titleBarRect_height"
+				visible	1
+				forecolor	1,1,1,"desktop::titleBarTextAlpha"
+				text	"#str_222004"
+				textscale	.35
+				font	"fonts/marine"
+			}
+		}
+		windowDef titleBarTeamPowerups
+		{
+			rect	"desktop::titleBarRectTeamPowerups_x","desktop::titleBarRectTeamPowerups_y","desktop::titleBarRect_width","desktop::titleBarRect_height"
+			visible	1
+			background	"gfx/guis/mainmenu/b3_light"
+			matcolor	0,0,0,1
+			matscaley	-1
+			windowDef titleBarTeamPowerupsText
+			{
+				rect	"desktop::titleBarText_offset_x","desktop::titleBarText_offset_y","desktop::titleBarRect_width","desktop::titleBarRect_height"
+				visible	1
+				forecolor	1,1,1,"desktop::titleBarTextAlpha"
+				text	"#str_222005"
+				textscale	.35
+				font	"fonts/marine"
+			}
+		}
+	}
+	
+	windowDef buyMenuButtons
+	{
+		rect	0,0,640,480
+		visible	1
+		windowDef buyButtonVisuals_shotgun
+		{
+			rect	"desktop::buyButtonVisuals_shotgun_x","desktop::buyButtonVisuals_shotgun_y",640,480
+			visible	0
+			windowDef buyButtonBackground_shotgun
+			{
+				rect	0,0,"desktop::buyButtonVisuals_weapons_width","desktop::buyButtonVisuals_weapons_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_shotgun
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_shotgun_colored"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_shotgun
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y","desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_shotgun"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_shotgun
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y","desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_200105"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_shotgun
+		{
+			rect	"desktop::buyButtonMouseArea_shotgun_x","desktop::buyButtonMouseArea_shotgun_y","desktop::buyButtonMouseArea_weapons_width","desktop::buyButtonMouseArea_weapons_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_shotgun" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_shotgun" ;
+					set "buyButtonBackground_shotgun::matcolor_w" "1" ;
+					transition "buyButtonText_shotgun::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_shotgun::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_shotgun::textscale" "0.29" ; 
+					set "buyButtonPrice_shotgun::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_shotgun" == 0 )
+				{
+					transition "buyButtonBackground_shotgun::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_shotgun::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_shotgun::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_shotgun::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_shotgun::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_shotgun" == 0 )
+				{
+					consoleCMD "buy weapon_shotgun" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_grenadelauncher
+		{
+			rect	"desktop::buyButtonVisuals_grenadelauncher_x","desktop::buyButtonVisuals_grenadelauncher_y",640,480
+			visible	0
+			windowDef buyButtonBackground_grenadelauncher
+			{
+				rect	0,0,"desktop::buyButtonVisuals_weapons_width","desktop::buyButtonVisuals_weapons_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_grenadelauncher
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_grenade_colored"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_grenadelauncher
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y", "desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_grenadelauncher"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_grenadelauncher
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y", "desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_200108"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_grenadelauncher
+		{
+			rect	"desktop::buyButtonMouseArea_grenadelauncher_x","desktop::buyButtonMouseArea_grenadelauncher_y","desktop::buyButtonMouseArea_weapons_width","desktop::buyButtonMouseArea_weapons_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_grenadelauncher" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_grenadelauncher" ;
+					set "buyButtonBackground_grenadelauncher::matcolor_w" "1" ;
+					transition "buyButtonText_grenadelauncher::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_grenadelauncher::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_grenadelauncher::textscale" "0.29" ; 
+					set "buyButtonPrice_grenadelauncher::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_grenadelauncher" == 0 )
+				{
+					transition "buyButtonBackground_grenadelauncher::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_grenadelauncher::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_grenadelauncher::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_grenadelauncher::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_grenadelauncher::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_grenadelauncher" == 0 )
+				{
+					consoleCMD "buy weapon_grenadelauncher" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_nailgun
+		{
+			rect	"desktop::buyButtonVisuals_nailgun_x","desktop::buyButtonVisuals_nailgun_y",640,480
+			visible	0
+			windowDef buyButtonBackground_nailgun
+			{
+				rect	0,0,"desktop::buyButtonVisuals_weapons_width","desktop::buyButtonVisuals_weapons_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_nailgun
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_nailgun_colored"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_nailgun
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y", "desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_nailgun"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_nailgun
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y", "desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_200109"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_nailgun
+		{
+			rect	"desktop::buyButtonMouseArea_nailgun_x","desktop::buyButtonMouseArea_nailgun_y","desktop::buyButtonMouseArea_weapons_width","desktop::buyButtonMouseArea_weapons_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_nailgun" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_nailgun" ;
+					set "buyButtonBackground_nailgun::matcolor_w" "1" ;
+					transition "buyButtonText_nailgun::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_nailgun::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_nailgun::textscale" "0.29" ; 
+					set "buyButtonPrice_nailgun::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_nailgun" == 0 )
+				{
+					transition "buyButtonBackground_nailgun::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_nailgun::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_nailgun::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_nailgun::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_nailgun::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_nailgun" == 0 )
+				{
+					consoleCMD "buy weapon_nailgun" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_hyperblaster
+		{
+			rect	"desktop::buyButtonVisuals_hyperblaster_x","desktop::buyButtonVisuals_hyperblaster_y",640,480
+			visible	0
+			windowDef buyButtonBackground_hyperblaster
+			{
+				rect	0,0,"desktop::buyButtonVisuals_weapons_width","desktop::buyButtonVisuals_weapons_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_hyperblaster
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_hyperblaster_colored"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_hyperblaster
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y", "desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_hyperblaster"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_hyperblaster
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y", "desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_200107"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_hyperblaster
+		{
+			rect	"desktop::buyButtonMouseArea_hyperblaster_x","desktop::buyButtonMouseArea_hyperblaster_y","desktop::buyButtonMouseArea_weapons_width","desktop::buyButtonMouseArea_weapons_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_hyperblaster" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_hyperblaster" ;
+					set "buyButtonBackground_hyperblaster::matcolor_w" "1" ;
+					transition "buyButtonText_hyperblaster::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_hyperblaster::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_hyperblaster::textscale" "0.29" ; 
+					set "buyButtonPrice_hyperblaster::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_hyperblaster" == 0 )
+				{
+					transition "buyButtonBackground_hyperblaster::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_hyperblaster::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_hyperblaster::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_hyperblaster::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_hyperblaster::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_hyperblaster" == 0 )
+				{
+					consoleCMD "buy weapon_hyperblaster" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_lightninggun
+		{
+			rect	"desktop::buyButtonVisuals_lightninggun_x","desktop::buyButtonVisuals_lightninggun_y",640,480
+			visible	0
+			windowDef buyButtonBackground_lightninggun
+			{
+				rect	0,0,"desktop::buyButtonVisuals_weapons_width","desktop::buyButtonVisuals_weapons_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_lightninggun
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_lightning_colored"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_lightninggun
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y", "desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_lightninggun"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_lightninggun
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y", "desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_200112"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_lightninggun
+		{
+			rect	"desktop::buyButtonMouseArea_lightninggun_x","desktop::buyButtonMouseArea_lightninggun_y","desktop::buyButtonMouseArea_weapons_width","desktop::buyButtonMouseArea_weapons_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_lightninggun" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_lightninggun" ;
+					set "buyButtonBackground_lightninggun::matcolor_w" "1" ;
+					transition "buyButtonText_lightninggun::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_lightninggun::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_lightninggun::textscale" "0.29" ; 
+					set "buyButtonPrice_lightninggun::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_lightninggun" == 0 )
+				{
+					transition "buyButtonBackground_lightninggun::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_lightninggun::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_lightninggun::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_lightninggun::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_lightninggun::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_lightninggun" == 0 )
+				{
+					consoleCMD "buy weapon_lightninggun" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_rocketlauncher
+		{
+			rect	"desktop::buyButtonVisuals_rocketlauncher_x","desktop::buyButtonVisuals_rocketlauncher_y",640,480
+			visible	0
+			windowDef buyButtonBackground_rocketlauncher
+			{
+				rect	0,0,"desktop::buyButtonVisuals_weapons_width","desktop::buyButtonVisuals_weapons_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_rocketlauncher
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_rocket_colored"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_rocketlauncher
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y", "desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_rocketlauncher"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_rocketlauncher
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y", "desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_200110"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_rocketlauncher
+		{
+			rect	"desktop::buyButtonMouseArea_rocketlauncher_x","desktop::buyButtonMouseArea_rocketlauncher_y","desktop::buyButtonMouseArea_weapons_width","desktop::buyButtonMouseArea_weapons_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_rocketlauncher" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_rocketlauncher" ;
+					set "buyButtonBackground_rocketlauncher::matcolor_w" "1" ;
+					transition "buyButtonText_rocketlauncher::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_rocketlauncher::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_rocketlauncher::textscale" "0.29" ; 
+					set "buyButtonPrice_rocketlauncher::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_rocketlauncher" == 0 )
+				{
+					transition "buyButtonBackground_rocketlauncher::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_rocketlauncher::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_rocketlauncher::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_rocketlauncher::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_rocketlauncher::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_rocketlauncher" == 0 )
+				{
+					consoleCMD "buy weapon_rocketlauncher" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_railgun
+		{
+			rect	"desktop::buyButtonVisuals_railgun_x","desktop::buyButtonVisuals_railgun_y",640,480
+			visible	0
+			windowDef buyButtonBackground_railgun
+			{
+				rect	0,0,"desktop::buyButtonVisuals_weapons_width","desktop::buyButtonVisuals_weapons_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_railgun
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_railgun_colored"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_railgun
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y", "desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_railgun"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_railgun
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y", "desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_200111"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_railgun
+		{
+			rect	"desktop::buyButtonMouseArea_railgun_x","desktop::buyButtonMouseArea_railgun_y","desktop::buyButtonMouseArea_weapons_width","desktop::buyButtonMouseArea_weapons_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_railgun" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_railgun" ;
+					set "buyButtonBackground_railgun::matcolor_w" "1" ;
+					transition "buyButtonText_railgun::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_railgun::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_railgun::textscale" "0.29" ; 
+					set "buyButtonPrice_railgun::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_railgun" == 0 )
+				{
+					transition "buyButtonBackground_railgun::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_railgun::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_railgun::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_railgun::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_railgun::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_railgun" == 0 )
+				{
+					consoleCMD "buy weapon_railgun" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_napalmgun
+		{
+			rect	"desktop::buyButtonVisuals_napalmgun_x","desktop::buyButtonVisuals_napalmgun_y",640,480
+			visible	0
+			windowDef buyButtonBackground_napalmgun
+			{
+				rect	0,0,"desktop::buyButtonVisuals_weapons_width","desktop::buyButtonVisuals_weapons_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_napalmgun
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_fire_colored"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_napalmgun
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y", "desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_napalmgun"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_napalmgun
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y", "desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_222001"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_napalmgun
+		{
+			rect	"desktop::buyButtonMouseArea_napalmgun_x","desktop::buyButtonMouseArea_napalmgun_y","desktop::buyButtonMouseArea_weapons_width","desktop::buyButtonMouseArea_weapons_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_napalmgun" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_napalmgun" ;
+					set "buyButtonBackground_napalmgun::matcolor_w" "1" ;
+					transition "buyButtonText_napalmgun::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_napalmgun::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_napalmgun::textscale" "0.29" ; 
+					set "buyButtonPrice_napalmgun::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_napalmgun" == 0 )
+				{
+					transition "buyButtonBackground_napalmgun::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_napalmgun::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_napalmgun::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_napalmgun::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_napalmgun::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_napalmgun" == 0 )
+				{
+					consoleCMD "buy weapon_napalmgun" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_ammorefill
+		{
+			rect	"desktop::buyButtonVisuals_ammorefill_x","desktop::buyButtonVisuals_ammorefill_y",640,480
+			visible	0
+			windowDef buyButtonBackground_ammorefill
+			{
+				rect	0,0,"desktop::buyButtonVisuals_ammoarmor_width","desktop::buyButtonVisuals_ammoarmor_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_ammorefill
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/sb_ammoregen"
+				matcolor	0,1,0,1
+			}
+			windowDef buyButtonPrice_ammorefill
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y","desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_ammorefill"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_ammorefill
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y","desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_222007"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_ammorefill
+		{
+			rect	"desktop::buyButtonMouseArea_ammorefill_x","desktop::buyButtonMouseArea_ammorefill_y","desktop::buyButtonMouseArea_ammoarmor_width","desktop::buyButtonMouseArea_ammoarmor_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_ammorefill" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_ammorefill" ;
+					set "buyButtonBackground_ammorefill::matcolor_w" "1" ;
+					transition "buyButtonText_ammorefill::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_ammorefill::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_ammorefill::textscale" "0.29" ; 
+					set "buyButtonPrice_ammorefill::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_ammorefill" == 0 )
+				{
+					transition "buyButtonBackground_ammorefill::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_ammorefill::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_ammorefill::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_ammorefill::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_ammorefill::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_ammorefill" == 0 )
+				{
+					consoleCMD "buy ammorefill" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_lightarmor
+		{
+			rect	"desktop::buyButtonVisuals_lightarmor_x","desktop::buyButtonVisuals_lightarmor_y",640,480
+			visible	0
+			windowDef buyButtonBackground_lightarmor
+			{
+				rect	0,0,"desktop::buyButtonVisuals_ammoarmor_width","desktop::buyButtonVisuals_ammoarmor_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_lightarmor
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_armor"
+				matcolor	1,1,0,1
+			}
+			windowDef buyButtonPrice_lightarmor
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y","desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_lightarmor"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_lightarmor
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y","desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_222008"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_lightarmor
+		{
+			rect	"desktop::buyButtonMouseArea_lightarmor_x","desktop::buyButtonMouseArea_lightarmor_y","desktop::buyButtonMouseArea_ammoarmor_width","desktop::buyButtonMouseArea_ammoarmor_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_lightarmor" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_lightarmor" ;
+					set "buyButtonBackground_lightarmor::matcolor_w" "1" ;
+					transition "buyButtonText_lightarmor::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_lightarmor::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_lightarmor::textscale" "0.29" ; 
+					set "buyButtonPrice_lightarmor::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_lightarmor" == 0 )
+				{
+					transition "buyButtonBackground_lightarmor::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_lightarmor::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_lightarmor::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_lightarmor::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_lightarmor::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_lightarmor" == 0 )
+				{
+					consoleCMD "buy item_armor_small" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_heavyarmor
+		{
+			rect	"desktop::buyButtonVisuals_heavyarmor_x","desktop::buyButtonVisuals_heavyarmor_y",640,480
+			visible	0
+			windowDef buyButtonBackground_heavyarmor
+			{
+				rect	0,0,"desktop::buyButtonVisuals_ammoarmor_width","desktop::buyButtonVisuals_ammoarmor_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_heavyarmor
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_armor"
+				matcolor	1,0,0,1
+			}
+			windowDef buyButtonPrice_heavyarmor
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y","desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_heavyarmor"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_heavyarmor
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y","desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_222009"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_heavyarmor
+		{
+			rect	"desktop::buyButtonMouseArea_heavyarmor_x","desktop::buyButtonMouseArea_heavyarmor_y","desktop::buyButtonMouseArea_ammoarmor_width","desktop::buyButtonMouseArea_ammoarmor_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_heavyarmor" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_heavyarmor" ;
+					set "buyButtonBackground_heavyarmor::matcolor_w" "1" ;
+					transition "buyButtonText_heavyarmor::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_heavyarmor::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_heavyarmor::textscale" "0.29" ; 
+					set "buyButtonPrice_heavyarmor::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_heavyarmor" == 0 )
+				{
+					transition "buyButtonBackground_heavyarmor::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_heavyarmor::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_heavyarmor::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_heavyarmor::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_heavyarmor::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_heavyarmor" == 0 )
+				{
+					consoleCMD "buy item_armor_large" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_special0
+		{
+			rect	"desktop::buyButtonVisuals_special0_x","desktop::buyButtonVisuals_special0_y",640,480
+			visible	0
+			windowDef buyButtonBackground_special0
+			{
+				rect	0,0,"desktop::buyButtonVisuals_teampowerups_width","desktop::buyButtonVisuals_teampowerups_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_special0
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/sb_ammoregen"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_special0
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y","desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_special0"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_special0
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y","desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_222010"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_special0
+		{
+			rect	"desktop::buyButtonMouseArea_special0_x","desktop::buyButtonMouseArea_special0_y","desktop::buyButtonMouseArea_teampowerups_width","desktop::buyButtonMouseArea_teampowerups_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_special0" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_special0" ;
+					set "buyButtonBackground_special0::matcolor_w" "1" ;
+					transition "buyButtonText_special0::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_special0::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_special0::textscale" "0.29" ; 
+					set "buyButtonPrice_special0::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_special0" == 0 )
+				{
+					transition "buyButtonBackground_special0::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_special0::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_special0::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_special0::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_special0::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_special0" == 0 )
+				{
+					consoleCMD "buy ammo_regen" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_special1
+		{
+			rect	"desktop::buyButtonVisuals_special1_x","desktop::buyButtonVisuals_special1_y",640,480
+			visible	0
+			windowDef buyButtonBackground_special1
+			{
+				rect	0,0,"desktop::buyButtonVisuals_teampowerups_width","desktop::buyButtonVisuals_teampowerups_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_special1
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/item_regen"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_special1
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y","desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_special1"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_special1
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y","desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_222011"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_special1
+		{
+			rect	"desktop::buyButtonMouseArea_special1_x","desktop::buyButtonMouseArea_special1_y","desktop::buyButtonMouseArea_teampowerups_width","desktop::buyButtonMouseArea_teampowerups_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_special1" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_special1" ;
+					set "buyButtonBackground_special1::matcolor_w" "1" ;
+					transition "buyButtonText_special1::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_special1::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_special1::textscale" "0.29" ; 
+					set "buyButtonPrice_special1::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_special1" == 0 )
+				{
+					transition "buyButtonBackground_special1::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_special1::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_special1::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_special1::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_special1::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_special1" == 0 )
+				{
+					consoleCMD "buy health_regen" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef buyButtonVisuals_special2
+		{
+			rect	"desktop::buyButtonVisuals_special2_x","desktop::buyButtonVisuals_special2_y",640,480
+			visible	0
+			windowDef buyButtonBackground_special2
+			{
+				rect	0,0,"desktop::buyButtonVisuals_teampowerups_width","desktop::buyButtonVisuals_teampowerups_height"
+				visible	1
+				background	"gfx/guis/mainmenu/b3_light"
+				matcolor	0,0,0,0.4
+			}
+			windowDef buyButtonIcon_special2
+			{
+				rect	"desktop::buyButtonVisuals_iconOffset_x","desktop::buyButtonVisuals_iconOffset_y","desktop::buyButtonVisuals_icon_size","desktop::buyButtonVisuals_icon_size"
+				visible	1
+				background	"gfx/guis/hud/icons/sb_doubler"
+				matcolor	1,1,1,1
+			}
+			windowDef buyButtonPrice_special2
+			{
+				rect	"desktop::buyButtonVisuals_priceOffset_x","desktop::buyButtonVisuals_priceOffset_y","desktop::buyButtonVisuals_price_width", "desktop::buyButtonVisuals_price_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"gui::price_special2"
+				textscale	.28
+				font	"fonts/marine"
+			}
+			windowDef buyButtonText_special2
+			{
+				rect	"desktop::buyButtonVisuals_textOffset_x","desktop::buyButtonVisuals_textOffset_y","desktop::buyButtonVisuals_text_width", "desktop::buyButtonVisuals_text_height"
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_222012"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef buyButtonFunctionality_special2
+		{
+			rect	"desktop::buyButtonMouseArea_special2_x","desktop::buyButtonMouseArea_special2_y","desktop::buyButtonMouseArea_teampowerups_width","desktop::buyButtonMouseArea_teampowerups_height"
+			visible	0
+
+			onMouseEnter {
+				if ( "gui::buyStatus_special2" == 0 )
+				{
+					stoptransitions "buyButtonFunctionality_special2" ;
+					set "buyButtonBackground_special2::matcolor_w" "1" ;
+					transition "buyButtonText_special2::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					transition "buyButtonPrice_special2::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+					set "buyButtonText_special2::textscale" "0.29" ; 
+					set "buyButtonPrice_special2::textscale" "0.29" ; 
+					set "cmd" "play main_menu_mouseover" ;	
+				}
+			}
+
+			onMouseExit {
+				if ( "gui::buyStatus_special2" == 0 )
+				{
+					transition "buyButtonBackground_special2::matcolor_w" "1" "0.4" "300" ;
+					transition "buyButtonText_special2::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonText_special2::textscale" "0.29" "0.28" "300" ;
+					transition "buyButtonPrice_special2::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+					transition "buyButtonPrice_special2::textscale" "0.29" "0.28" "300" ;
+				}
+			}
+
+			onActionRelease {
+				if ( "gui::buyStatus_special2" == 0 )
+				{
+					consoleCMD "buy damage_boost" ;
+					set "cmd" "play main_menu_selection" ;
+				}
+			}
+
+		}
+		windowDef closeButtonVisuals
+		{
+			rect	"desktop::closeButtonVisuals_x","desktop::closeButtonVisuals_y",640,480
+			visible	0
+			windowDef closeButtonBackground
+			{
+				rect	0,0,109,30
+				visible	1
+				background	"gfx/guis/mainmenu/b4_light"
+				matcolor	0.545,0.588,0.294,0.4
+			}
+			windowDef closeButtonCorner
+			{
+				rect	10,8,11,11
+				visible	1
+				background	"gfx/guis/mainmenu/corner"
+				matcolor	0.564,0.603,0.286,0.4
+			}
+			windowDef closeButtonText
+			{
+				rect	20,3,88,17
+				visible	1
+				forecolor	1,1,1,0.8
+				text	"#str_200923"
+				textscale	.28
+				font	"fonts/marine"
+			}
+		}
+		windowDef closeButtonFunctionality
+		{
+			rect	"desktop::closeButtonMouseArea_x","desktop::closeButtonMouseArea_y","desktop::closeButtonMouseArea_width","desktop::closeButtonMouseArea_height"
+			visible	0
+
+			onMouseEnter {
+				stoptransitions "closeButtonFunctionality" ;
+				set "closeButtonBackground::matcolor_w" "1" ;
+				transition "closeButtonText::forecolor" "$desktop::white_8" "$desktop::orange" "0" ; 
+				transition "closeButtonCorner::matcolor" "$desktop::corner" "$desktop::orange" "0" ;
+				set "closeButtonText::textscale" "0.29" ; 
+				set "cmd" "play main_menu_mouseover" ;	
+			}
+
+			onMouseExit {
+				transition "closeButtonBackground::matcolor_w" "1" "0.4" "300" ;
+				transition "closeButtonText::forecolor"  "$desktop::orange" "$desktop::white_8" "300" ; 
+				transition "closeButtonCorner::matcolor"  "$desktop::orange" "$desktop::corner" "300" ; 
+				transition "closeButtonText::textscale" "0.29" "0.28" "300" ;
+			}
+
+			onActionRelease {
+				set "cmd" "play main_menu_selection" ;
+				resettime "buyMenuCloseAnimation" "0" ;
+			}
+
+		}
+	}
+	windowDef animationDefinitions
+	{
+		rect	0,0,1,1
+		visible	0
+		windowDef buyMenuOpenAnimation
+		{
+			rect	0,0,1,1
+			visible	1
+			notime	1
+
+			onTime 0 {
+				namedevent hideEverything;
+				set "mainBuyWindowDef::visible" "1" ;
+				
+				/// Static screen elements
+				transition "topBackgroundBarAnimStart::rect" "$topBackgroundBarAnimStart::rect" "$topBackgroundBarAnimEnd::rect" "150" ;
+				transition "bottomBackgroundBarAnimStart::rect" "$bottomBackgroundBarAnimStart::rect" "$bottomBackgroundBarAnimEnd::rect" "150" ;
+				transition "fullScreenFlatRect::backcolor_w" "0" "0.8" "150" ;
+				transition "topBottomGradiant::matcolor_w" "0" "1" "200" ;
+				transition "centerVerticalGradiant::matcolor" "0,0,0,0" "0.7,0.7,0.7,1" "150" ;
+				transition "plusGridLeft::matcolor_w" "0" "0.04" "150" ;
+				transition "plusGridRight::matcolor_w" "0" "0.04" "150" ;
+				transition "buyMenuTitleText::forecolor_w"  "0" "0.8" "150" ; 
+				set "buyMenuTitleText::visible" "0" ;
+				
+				/// "Close" button
+				transition "closeButtonBackground::matcolor_w" "0" "0.4" "150" ;
+				transition "closeButtonText::forecolor_w"  "0" "0.8" "150" ; 
+				transition "closeButtonCorner::matcolor_w"  "0" "0.4" "150" ; 
+				set "closeButtonVisuals::visible" "0" ;
+				set "closeButtonFunctionality::visible" "0" ;
+			}
+
+			onTime 250 {
+				/// Static screen elements
+				set "buyMenuTitleText::visible" "1" ;
+				
+				/// "Close" button
+				set "closeButtonVisuals::visible" "1" ;
+				set "closeButtonFunctionality::visible" "1" ;
+				
+				namedevent showWeaponButtons;
+				namedevent showAmmoArmorButtons;
+				namedevent showTeamPowerupButtons;
+			}
+
+		}
+		windowDef buyMenuCloseAnimation
+		{
+			rect	0,0,1,1
+			visible	0
+			notime	1
+
+			onTime 0 {
+				/// Static screen elements
+				set "buyMenuTitleText::visible" "0" ;
+
+				/// "Close" button
+				set "closeButtonFunctionality::visible" "0" ;
+			}
+
+			onTime 50 {	
+				/// Static screen elements
+				transition "topBackgroundBarAnimStart::rect" "$topBackgroundBarAnimEnd::rect" "$topBackgroundBarAnimStart::rect" "150" ;
+				transition "bottomBackgroundBarAnimStart::rect" "$bottomBackgroundBarAnimEnd::rect" "$bottomBackgroundBarAnimStart::rect" "150" ;
+				transition "fullScreenFlatRect::backcolor_w" "0.8" "0" "150" ;
+				transition "topBottomGradiant::matcolor_w" "1" "0" "150" ;
+				transition "centerVerticalGradiant::matcolor" "0.7,0.7,0.7,1" "0,0,0,0" "150" ;
+				transition "plusGridLeft::matcolor_w" "0.04" "0" "150" ;
+				transition "plusGridRight::matcolor_w" "0.04" "0" "150" ;
+				transition "buyMenuTitleText::forecolor_w"  "1" "0" "150" ; 
+
+				/// "Close" button
+				transition "closeButtonBackground::matcolor_w" "0.4" "0" "150" ;
+				transition "closeButtonText::forecolor_w"  "1" "0" "150" ; 
+				transition "closeButtonCorner::matcolor_w"  "0.4" "0" "150" ; 
+			}
+
+			onTime 150 {
+				set "mainBuyWindowDef::visible" "0" ;
+				set "cmd" "close" ;
+			}
+
+		}
+	}
+}

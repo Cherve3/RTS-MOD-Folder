@@ -1,0 +1,128 @@
+namespace miner
+{
+
+//--
+// miner ambience 		aweldon Feb 05/Cherve Feb 20
+//--
+
+// The following functions allow placement of random/ambient miner paths from either monster_repair_bot
+// entities or Repair Bots spawned from func_spawners.
+
+// To use this feature, place a series of target_nulls at all the points you want the Repair Bot to move to.
+// These will form your "Move Targets." Each move target should target a second target_null, the "Action Target."
+// From each Move Target, target the appropriate Action target. The script function will pull this information to
+// determine facing for each action.
+
+// On each Move Target, add the following keys:
+//	KEY:		VALUE:
+//	action		mine		(defines the action for this move target)
+//	duration	X		(defines the length of time, X, to perform the action)
+//	occupied	0		(sets the initial occupied status)
+
+// Add another target_null in a convenient location. This will form the list from which random move targets will
+// be selected. From this target_null, target all Move Targets in the area.
+
+// On a func_spawner, this script can be called by setting the "spawn_script" key to the value "map_hub2::randomBots"
+// An additional key, "spawn_list" is required to allow miners to select targets from the proper list. Set this key
+// to match the name of the target_null you created in the previous step. Finally, make sure you have more Move Targets
+// than miners.
+
+// When triggered, the miners will spawn in, fire the randomBots function which, in turn, threads the function
+// botActions for that bot. botActions will pull the name of the list from the miner (set with spawn_list as seen 
+// above), select a random Move Target, and begin the cycle.
+
+// In some cases, you may want to keep fresh miners cycling in over time. This function includes support for
+// "Kill Targets" which will remove the miner from the game and spawn a new one if the spawner is able.
+// Kill Targets are set up as normal move targets, but do not have an action target specified. They should be placed
+// out of view to prevent badness.
+
+// If a list has Kill Targets available, toggling a spawner off will cause the miners to gradually trickle out of
+// the area as they come across the kill targets. This can be triggered the same time as a combat trigger and used with 
+// a high number of kill targets to simulate miners clearing an area when combat is active.
+
+void setOccupied( entity target )	{
+		
+	if( target.getKey( "occupied" ) == "1" )	{
+		// Set the occupied key to the appropriate value
+		target.setKey( "occupied" , "0" );
+	}
+	
+	else	{
+		// Set the occupied key to the appropriate value
+		target.setKey( "occupied" , "1" );
+	}
+}
+
+void mineActions( entity mineName )	{
+	
+	// Define the entities that will be used for random target selection
+	entity mineTarget = $null_entity;
+	entity oldTarget = $null_entity;
+	
+	// Pull the name of the correct list passed to this miner from the spawner.
+	entity mineList = mineName.getEntityKey("list");
+	
+	// Perform these actions as long as the miner lives.
+	while ( isValidEntity ( mineName ) ) {
+		// Select a new move target at random from the list of target_nulls
+		mineTarget = qListRandom( mineList );
+						
+		// Check against the previous target, and select a new one if the old target repeats itself.
+		while ( mineTarget.getKey( "occupied" ) == "1" )	{
+			mineTarget = qListRandom( mineList );
+			sys.waitFrame();
+		}
+		
+		// We found a valid target! Pull the action target from the move target.
+		entity mineAction = mineTarget.getTarget(0);
+		
+		// Set target as occupied to prevent other miners from using it
+		thread setOccupied( mineTarget );
+	
+		// Identify action type (mine target or ignore target).
+		if( isValidEntity ( mineAction ) )	{
+			// Move to the target.
+			aiScriptedMoveWait( mineName, mineTarget , 32 , 0 );
+			sys.waitFrame();
+			
+				// Run check to ensure bot is still valid.
+				if( isValidEntity ( mineName ) )	{
+					// Look at the target.
+					aiScriptedFaceWait( mineName, mineAction, 0 );
+					sys.waitFrame();
+	
+					// Run another check to ensure bot is still valid.
+					if( isValidEntity ( mineName ) )	{
+						// Perform the scripted action.
+						aiScriptedActionWait( mineName, mineTarget , 0 );
+						sys.waitFrame();
+					}
+				}
+			
+			// Set target as unoccupied once action is completed.
+			thread setOccupied( mineTarget );
+		}
+			
+		// Move targets with no target are kill zones which should remove the miner. Handle those here.
+		else	{ 
+			// Move to the target.
+			aiScriptedMoveWait(  mineName, mineTarget , 64 , 0 ); 
+			sys.waitFrame();
+			
+			// Run check to ensure miner is still valid.
+			if( isValidEntity ( mineName ) )	{
+				// Set target as unoccupied once action is completed.
+				thread setOccupied( mineTarget );
+				
+				//Kill miner. FIX LATER IF THIS MAKES THINGS EXPLODE.
+				mineName.removeUpdateSpawner();
+				break;
+			}
+		}
+		
+		// Define the old target for comparison against the new target.
+		oldTarget = mineTarget;
+	}
+}	
+
+}

@@ -1,0 +1,4 @@
+"Autosave convoy2"
+"^:Map Start	^0convoy2"
+""
+nooverwrite

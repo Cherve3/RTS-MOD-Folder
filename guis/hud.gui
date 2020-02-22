@@ -1,0 +1,664 @@
+windowDef Desktop
+{
+	visible	1
+	rect	0,0,640,480
+	menugui	1
+	nocursor	0
+
+	onInit {
+		namedEvent "updateHealth";
+		namedEvent "updateArmor";
+		namedEvent "clipCheck";
+		namedEvent "hideBrackets";
+		namedEvent "updateResource";
+		namedEvent "hideBuildMenu";
+	}
+
+	onNamedEvent updateHealth {
+		if ( "gui::mp" == 0 )
+		{
+			if ( "gui::player_healthpct" < 0.26 )
+			{
+				set "health_valbar::matcolor" "1,0.3,0,0.35" ;
+				set "health_val::matcolor" "1,0.3,0,0.5" ;
+				set "health_ekg::matcolor" "0.3,0.05,0,1" ;
+				set "health_backbar_add::visible" "1" ;
+			} else	{
+				set "health_valbar::matcolor" "0.698,0.811,0.427,0.2" ;
+				set "health_val::matcolor" "0.698,0.811,0.427,0.35" ;
+				set "health_ekg::matcolor" "0.0862,0.105,0.0549,1" ;
+				set "health_backbar_add::visible" "0" ;
+			}	
+		} else {
+			if ( "gui::player_healthpct" < 0.26 )
+			{
+				set "health_backbar_add_mp::visible" "1" ;
+			} else	{
+				set "health_backbar_add_mp::visible" "0" ;
+			}	
+		}
+		
+		if ( "gui::player_healthdelta" < 0 )
+		{
+			resettime "health_amount" "0" ;
+		}
+	}
+
+	onNamedEvent updateArmor {
+		if ( "gui::player_armordelta" < 0 )
+		{
+			resettime "armor_amount" "0" ;
+		}
+	}
+
+	onNamedEvent showBrackets {
+		set "brackets::alpha" "1";
+		set "brackets::visible" "1";
+		stopTransitions "brackets";
+		resetTime "brackets" "0";
+		set "brackets::notime" "1";
+	}
+
+	onNamedEvent fadeBrackets {
+		resetTime "brackets" "0";
+	}
+
+	onNamedEvent hideBrackets {
+		stopTransitions "brackets";
+		resetTime "brackets" "0";
+		set "brackets::notime" "1";
+		set "brackets::visible" "0";
+	}
+
+	onNamedEvent playerHit {
+		resetTime "hit_indicator" "0";	
+	}
+
+	onNamedEvent updateResource {
+		
+	}
+
+	onNamedEvent hideBuildMenu {
+		set "build_menu::visible" "0"
+	}
+
+	onNamedEvent showBuildMenu {
+		set "build_menu::visible" "1"
+	}
+
+	onNamedEvent showBossBar {
+		set "BossBar::visible" "1";
+	}
+
+	onNamedEvent hideBossBar {
+		set "BossBar::visible" "0";
+	}
+
+	onNamedEvent showBossShieldBar {
+		set "p_boss_shield_bar_left::visible" "1";
+		set "p_boss_shield_bar_right::visible" "1";
+	}
+
+	onNamedEvent hideBossShieldBar {
+		set "p_boss_shield_bar_left::visible" "0";
+		set "p_boss_shield_bar_right::visible" "0";
+	}
+
+	onNamedEvent showBossShieldWarn {
+		set "p_boss_shield_bar_leftwarn::visible" "1";
+		set "p_boss_shield_bar_rightwarn::visible" "1";
+		set "p_boss_shield_bar_left::visible" "0";
+		set "p_boss_shield_bar_right::visible" "0";
+	}
+
+	onNamedEvent hideBossShieldWarn {
+		set "p_boss_shield_bar_leftwarn::visible" "0";
+		set "p_boss_shield_bar_rightwarn::visible" "0";
+		set "p_boss_shield_bar_left::visible" "1";
+		set "p_boss_shield_bar_right::visible" "1";
+	}
+
+	onNamedEvent showViewComments {
+		set "ViewComments::visible" "1";
+	}
+
+	onNamedEvent hideViewComments {
+		set "ViewComments::visible" "0";
+	}
+
+	windowDef brackets
+	{
+		visible	0
+		rect	"gui::bracket_left" - 10, "gui::bracket_top" - 10, "gui::bracket_width" + 20, "gui::bracket_height" + 20
+		noclip	1
+		notime	1
+		float	"alpha"	1
+
+		onTime 400 {
+			transition "brackets::alpha" "1" "0" 400;
+		}
+
+		onTime +400 {
+			set "visible" "0";
+		}
+
+		windowDef bracket_text
+		{
+			rect	-50,-30,"gui::bracket_width"+120,30
+			text	"#str_200277"
+			font	"fonts/marine"
+			textalign	1
+			forecolor	0.686,0.870,0.564,"brackets::alpha"
+			textscale	.25
+		}
+		windowDef left_bracket
+		{
+			rect	0,0,2,"gui::bracket_height" + 20
+			backcolor	0.686,0.870,0.564,"brackets::alpha"
+			noclip	1
+			windowDef lbt_prong
+			{
+				rect	2,0,5,2
+				backcolor	0.686,0.870,0.564,"brackets::alpha"
+			}
+			windowDef lbb_prong
+			{
+				rect	2,"gui::bracket_height"+18,5,2
+				backcolor	0.686,0.870,0.564,"brackets::alpha"
+			}
+		}
+		windowDef right_bracket
+		{
+			rect	"gui::bracket_width" + 18,0,2,"gui::bracket_height" + 20
+			backcolor	0.686,0.870,0.564,"brackets::alpha"
+			visible	1
+			noclip	1
+			windowDef rbt_prong
+			{
+				rect	-5,0,5,2
+				backcolor	0.686,0.870,0.564,"brackets::alpha"
+			}
+			windowDef rbb_prong
+			{
+				rect	-5,"gui::bracket_height"+18,5,2
+				backcolor	0.686,0.870,0.564,"brackets::alpha"
+			}
+		}
+	}
+	popupDef build_menu
+	{
+		rect	409,191,187,254
+		visible	1
+		backcolor	0,0,0,1
+		bordersize	1
+		bordercolor	1,1,1,1
+		forecolor	1,1,1,1
+		text	"Build Menu"
+		textscale	0.4
+		font	"fonts/marine"
+		textstyle	2
+		showcursor	=
+		1	;
+		windowDef build_commcenter
+		{
+			rect	2,29,103,68
+			visible	1
+			bordersize	1
+			bordercolor	1,1,1,1
+			text	"Command Center"
+			textscale	0.2
+			font	"fonts/marine"
+			windowDef price_comm
+			{
+				text	"Price: 400"
+				rect	35,58,34,11
+				visible	1
+				forecolor	1,1,1,1
+				textscale	0.1
+			}
+		}
+		windowDef build_barracks
+		{
+			rect	106,29,77,68
+			visible	1
+			bordersize	1
+			bordercolor	1,1,1,1
+			text	"Barracks"
+			textscale	0.2
+			font	"fonts/marine"
+			windowDef price_barr
+			{
+				text	"Price: 200"
+				forecolor	1,1,1,1
+				textscale	0.1
+				visible	1
+				font	"fonts/chain"
+				rect	21,56,36,11
+			}
+		}
+		windowDef build_depot
+		{
+			rect	2,98,103,71
+			visible	1
+			bordersize	1
+			bordercolor	1,1,1,1
+			text	"Vehicle Depot"
+			textscale	0.2
+			font	"fonts/marine"
+			windowDef price_comm
+			{
+				text	"Price: 300"
+				rect	34,60,34,10
+				visible	1
+				forecolor	1,1,1,1
+				textscale	0.1
+			}
+		}
+	}
+	windowDef gui_background
+	{
+		rect	-351,331,1004,151
+		visible	1
+		noevents	1
+		background	"gfx/guis/mainmenu/btmbar"
+		matcolor	0,0.490,0.741,1
+	}
+	windowDef unit_image
+	{
+		rect	42,404,50,50
+		visible	1
+		background	"gfx/guis/mainmenu/q4logo"
+		matcolor	1,1,1,1
+		backcolor	1,1,1,1
+	}
+	windowDef unit_name
+	{
+		rect	36,389,69,13
+		visible	1
+		forecolor	1,1,1,1
+		text	"unit_name"
+		textscale	0.2
+		font	"fonts/marine"
+	}
+	bindDef b_1
+	{
+		rect	225,410,20,20
+		visible	1
+		background	"gfx/guis/hud/icons/gun_machinegun2.tga"
+		matcolor	1,1,1,1
+		bordersize	1
+		bordercolor	0.749,0.749,0.749,1
+
+		onAction {
+			transition rect 225,410,10,10
+		}
+
+	}
+	windowDef text_alert
+	{
+		rect	394,426,201,16
+		visible	1
+		textscale	0.25
+		text	"gui::viewcomments"
+	}
+	bindDef b_2
+	{
+		rect	250,410,20,20
+		visible	1
+		background	"gfx/guis/hud/icons/gun_shotgun2.tga"
+		matcolor	1,1,1,1
+		bordersize	1
+		bordercolor	0.741,0.741,0.741,1
+
+		onAction {
+			transition rect 225,410,15,15
+		}
+
+	}
+	bindDef b_3
+	{
+		rect	275,410,20,20
+		visible	1
+		background	"gfx/guis/cross_medic.tga"
+		bordersize	1
+		bordercolor	0.745,0.745,0.745,1
+		matcolor	1,1,1,1
+	}
+	bindDef b_10
+	{
+		rect	325,436,20,20
+		visible	1
+	}
+	bindDef b_9
+	{
+		rect	300,436,20,20
+		visible	1
+	}
+	bindDef b_8
+	{
+		rect	275,436,20,20
+		visible	1
+	}
+	bindDef b_7
+	{
+		rect	250,437,20,20
+		visible	1
+	}
+	bindDef b_6
+	{
+		rect	225,437,20,20
+		visible	1
+	}
+	bindDef b_5
+	{
+		rect	325,410,20,20
+		visible	1
+	}
+	bindDef b_4
+	{
+		rect	300,410,20,20
+		visible	1
+		bordersize	1
+		bordercolor	1,1,1,1
+		background	"gfx/guis/crosshairs/cross_tech.tga"
+		matcolor	1,1,1,1
+	}
+	windowDef str_resource
+	{
+		rect	389,456,60,18
+		visible	1
+		forecolor	1,1,1,1
+		text	"Resources:"
+		textscale	0.2
+		font	"fonts/lowpixel"
+	}
+	windowDef hit_indicator
+	{
+		rect	0,0,640,480
+		background	"gfx/guis/hud/directional_hit"
+		matcolor	1,.1,.1,.7
+		rotate	"gui::hitdir"
+		visible	0
+		notime	1
+
+		onTime 0 {
+			set "visible" "1";
+			transition "matcolor" "1,.1,.1,.7" "1,.1,.1,0" "500" ;
+		}
+
+		onTime +600 {
+			set "visible" "0";
+		}
+
+	}
+	windowDef Bossbar
+	{
+		rect	7,449,112,31
+		visible	0
+		windowDef boss_backbar
+		{
+			rect	8,7,94,20
+			visible	1
+			background	"gfx/guis/hud/s_bossbar"
+			matcolor	0,0,0,0.5
+		}
+		windowDef boss_healthicon
+		{
+			rect	53,21,6,5
+			visible	1
+			background	"gfx/guis/hud/icons/item_health"
+			matcolor	1,1,1,0.2
+		}
+		windowDef boss_health_bar2
+		{
+			rect	8,7,94,20
+			visible	1
+			background	"gfx/guis/hud/s_boss_healthbar"
+			matcolor	0.917,0.560,0.0823,0.2
+		}
+		windowDef boss_shield_bar_left2
+		{
+			rect	8,7,47,20
+			visible	1
+			background	"gfx/guis/hud/s_boss_shieldbar"
+			matcolor	0.415,0.549,0.541,0.2
+		}
+		windowDef boss_shield_bar_right2
+		{
+			rect	56,7,47,20
+			visible	1
+			background	"gfx/guis/hud/s_boss_shieldbar"
+			matcolor	0.415,0.549,0.541,0.2
+			matscalex	-1
+		}
+		windowDef p_boss_health_bar
+		{
+			rect	21,7,0,20
+			visible	1
+			windowDef boss_health_bar
+			{
+				rect	-23,0,113,18
+				visible	1
+				background	"gfx/guis/hud/s_boss_healthbar"
+				matcolor	0.917,0.560,0.0823,0.35
+			}
+		}
+		windowDef p_boss_shield_bar_left
+		{
+			rect	13,7,0,20
+			visible	0
+			windowDef boss_shield_bar_left
+			{
+				rect	-9,0,100,50
+				visible	1
+				background	"gfx/guis/hud/s_boss_shieldbar"
+				matcolor	0.415,0.549,0.541,0.35
+			}
+		}
+		windowDef p_boss_shield_bar_right
+		{
+			rect	98,7,42,20
+			visible	0
+			windowDef boss_shield_bar_right
+			{
+				rect	-89,0,100,50
+				visible	1
+				background	"gfx/guis/hud/s_boss_shieldbar"
+				matcolor	0.415,0.549,0.541,0.35
+				matscalex	-1
+			}
+		}
+		windowDef p_boss_shield_bar_leftwarn
+		{
+			rect	13,7,0,20
+			visible	0
+			windowDef boss_shield_bar_leftwarn
+			{
+				rect	-8,0,100,50
+				visible	1
+				background	"gfx/guis/hud/s_boss_shieldbar"
+				matcolor	1,0.25,0,1*guitable_10_5[time*0.002]
+			}
+		}
+		windowDef p_boss_shield_bar_rightwarn
+		{
+			rect	98,7,42,20
+			visible	0
+			windowDef boss_shield_bar_rightwarn
+			{
+				rect	-89,0,100,50
+				visible	1
+				background	"gfx/guis/hud/s_boss_shieldbar"
+				matcolor	1,0.25,0,1*guitable_10_5[time*0.002]
+				matscalex	-1
+			}
+		}
+	}
+	windowDef p_health
+	{
+		rect	0,0,640,480
+		visible	("gui::mp" == 0 )
+		windowDef health_backbar
+		{
+			rect	104,391,113,41
+			visible	1
+			background	"gfx/guis/hud/backbar"
+			matcolor	0,0,0,0.5
+			shear	0,-.22
+		}
+		windowDef health_valbar
+		{
+			rect	104,391,113,41
+			visible	1
+			background	"gfx/guis/hud/valbar"
+			matcolor	0.701,0.815,0.431,0.2
+			shear	0,-.22
+		}
+		windowDef health_ekg
+		{
+			rect	104,391,113,41
+			visible	1
+			background	"gfx/guis/hud/ekg"
+			matcolor	0.0862,0.105,0.0549,1
+			shear	0,-.22
+		}
+		windowDef p_health_val
+		{
+			rect	213,391,104,41
+			visible	1
+			shear	0,-.22
+			windowDef health_val
+			{
+				rect	-119,0,125,59
+				visible	1
+				background	"gfx/guis/hud/valbar"
+				matcolor	0.701,0.815,0.431,0.35
+				shear	0,-.22
+			}
+		}
+		windowDef d_health_amount
+		{
+			rect	162,396,52,21
+			visible	0
+			forecolor	1,1,1,1
+			text	""
+			textscale	0.2
+		}
+		windowDef health_amount
+		{
+			rect	164,397,47,18
+			visible	1
+			forecolor	0.858,0.913,0.756,1
+			text	"gui::player_health"
+			textscale	0.2
+			font	"fonts/chain"
+			shear	0,-.22
+			textalign	2
+			notime	1
+
+			onTime 0 {
+				transition "forecolor" "$desktop::white" "$desktop::typecolor" "250" ;
+				transition "rect" "$d_health_amount::rect" "$health_amount::rect" "250" ;
+				transition "textscale" "0.3" "0.2" "250" ;
+				
+				transition "icon_health::matcolor" "$desktop::white" "$desktop::healthicon" "250" ;
+			}
+
+		}
+		windowDef icon_health
+		{
+			rect	193,417,14,11
+			visible	1
+			background	"gfx/guis/hud/icons/item_health"
+			matcolor	0.658,0.639,0.376,0.6
+		}
+		windowDef health_backbar_add
+		{
+			rect	104,391,113,41
+			visible	0
+			background	"gfx/guis/hud/backbar_add"
+			matcolor	1*guitable_10_5[time*0.002],0,0,1
+			shear	0,-.22
+		}
+	}
+	windowDef p_armor
+	{
+		rect	0,0,640,480
+		visible	("gui::player_armor" > 0 && "gui::mp" == 0 )
+		windowDef armor_backbar
+		{
+			rect	103,425,113,41
+			visible	1
+			background	"gfx/guis/hud/backbar"
+			matcolor	0,0,0,0.5
+			shear	0,-.22
+		}
+		windowDef armor_valbar
+		{
+			rect	103,425,113,41
+			visible	1
+			background	"gfx/guis/hud/arbar"
+			matcolor	0.698,0.811,0.427,0.2
+			shear	0,-.22
+		}
+		windowDef p_armor_val
+		{
+			rect	212,425,104,41
+			visible	1
+			shear	0,-.22
+			windowDef armor_val
+			{
+				rect	-119,0,125,59
+				visible	1
+				background	"gfx/guis/hud/arbar"
+				matcolor	0.698,0.811,0.427,0.349
+				shear	0,-.22
+			}
+		}
+		windowDef d_armor_amount
+		{
+			rect	161,430,52,21
+			visible	0
+			forecolor	1,1,1,1
+			text	""
+			textscale	0.2
+		}
+		windowDef armor_amount
+		{
+			rect	163,431,47,18
+			visible	1
+			forecolor	0.858,0.913,0.756,1
+			text	"gui::player_armor"
+			textscale	0.2
+			font	"fonts/chain"
+			shear	0,-.22
+			textalign	2
+			notime	1
+
+			onTime 0 {
+				transition "forecolor" "$desktop::white" "$desktop::typecolor" "250" ;
+				transition "rect" "$d_armor_amount::rect" "$armor_amount::rect" "250" ;
+				transition "textscale" "0.3" "0.2" "250" ;
+				
+				transition "icon_armorvest::matcolor" "$desktop::white" "$desktop::armoricon" "250" ;
+			}
+
+		}
+		windowDef icon_armorvest
+		{
+			rect	192,451,14,11
+			visible	1
+			background	"gfx/guis/hud/icons/item_armor"
+			matcolor	0.658,0.639,0.376,0.6
+		}
+	}
+	windowDef resource_amount
+	{
+		rect	449,456,100,16
+		visible	1
+		forecolor	1,1,1,1
+		text	"gui::resource_amount"
+		textscale	0.2
+		font	"fonts/lowpixel"
+	}
+}

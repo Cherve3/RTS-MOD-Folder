@@ -1,0 +1,4 @@
+"Autosave rts_convoy2"
+"^:Map Start	^0rts_convoy2"
+""
+nooverwrite
