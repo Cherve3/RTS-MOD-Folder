@@ -93,7 +93,7 @@ entityDef weapon_machinegun
 	"inv_name"					"#str_107406"
 
 	"fireRate"					".1"
-	"spread"					"5"
+	"spread"					"2"
 
 	"mtr_crosshair"				"gfx/guis/crosshairs/crosshair_machinegun"
 	"def_hitscan"				"hitscan_bullet"

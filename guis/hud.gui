@@ -79,11 +79,17 @@ windowDef Desktop
 	}
 
 	onNamedEvent hideBuildMenu {
-		set "build_menu::visible" "0"
+		set "build_menu::visible" "0";
 	}
 
 	onNamedEvent showBuildMenu {
-		set "build_menu::visible" "1"
+		if(buildMenu == 0){
+			set "build_menu::visible" "1";
+			buildMenu = 1;
+		else{
+			set "build_menu::visible" "0";
+			buildMenu = 0;
+		}
 	}
 
 	onNamedEvent showBossBar {
@@ -120,6 +126,7 @@ windowDef Desktop
 
 	onNamedEvent showViewComments {
 		set "ViewComments::visible" "1";
+		fade
 	}
 
 	onNamedEvent hideViewComments {
@@ -197,8 +204,7 @@ windowDef Desktop
 		textscale	0.4
 		font	"fonts/marine"
 		textstyle	2
-		showcursor	=
-		1	;
+
 		windowDef build_commcenter
 		{
 			rect	2,29,103,68
@@ -276,7 +282,7 @@ windowDef Desktop
 		rect	36,389,69,13
 		visible	1
 		forecolor	1,1,1,1
-		text	"unit_name"
+		text	"gui::unit_name"
 		textscale	0.2
 		font	"fonts/marine"
 	}

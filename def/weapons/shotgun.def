@@ -76,6 +76,7 @@ entityDef weapon_shotgun
 	"joint_attach"				"SG_ATTACHER"
 	"joint_view_flash"			"flash"
   	"joint_view_eject"			"eject"
+	"joint_view_flashlight"		"flashlight"
 	"joint_view_guiLight"			"body"
 	"joint_world_flash"			"muzzle_flash"
 
@@ -121,6 +122,15 @@ entityDef weapon_shotgun
 	"flashPointLight"			"1"
 	"flashTime"				".1"
 	"flashViewOffset"			"15 -5 -5"
+
+	"mtr_flashlightShader"		"gfx/lights/flashlight"
+	"flashlightColor"			"1 1 .9"
+	"flashlightRadius"			"400"
+	"flashlightAngle"			"15.0"
+	"flashlightTarget"			"900 0 0"
+	"flashlightUp"				"0 340 0"
+	"flashlightRight"			"0 0 -340"
+	"flashlightPointLight"		"0"
 
 	"fx_eject"				"effects/weapons/shotgun/eject.fx"
   	"fx_muzzleflash"			"effects/weapons/shotgun/muzzleflash.fx"		
