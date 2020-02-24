@@ -83,7 +83,7 @@ windowDef Desktop
 	}
 
 	onNamedEvent showBuildMenu {
-		if(buildMenu == 0){
+		if("build_menu::visible" == 0){
 			set "build_menu::visible" "1";
 			buildMenu = 1;
 		else{
@@ -286,7 +286,7 @@ windowDef Desktop
 		textscale	0.2
 		font	"fonts/marine"
 	}
-	bindDef b_1
+	windowDef b_1
 	{
 		rect	225,410,20,20
 		visible	1
@@ -307,7 +307,7 @@ windowDef Desktop
 		textscale	0.25
 		text	"gui::viewcomments"
 	}
-	bindDef b_2
+	windowDef b_2
 	{
 		rect	250,410,20,20
 		visible	1
@@ -321,7 +321,7 @@ windowDef Desktop
 		}
 
 	}
-	bindDef b_3
+	windowDef b_3
 	{
 		rect	275,410,20,20
 		visible	1
@@ -330,37 +330,37 @@ windowDef Desktop
 		bordercolor	0.745,0.745,0.745,1
 		matcolor	1,1,1,1
 	}
-	bindDef b_10
+	windowDef b_10
 	{
 		rect	325,436,20,20
 		visible	1
 	}
-	bindDef b_9
+	windowDef b_9
 	{
 		rect	300,436,20,20
 		visible	1
 	}
-	bindDef b_8
+	windowDef b_8
 	{
 		rect	275,436,20,20
 		visible	1
 	}
-	bindDef b_7
+	windowDef b_7
 	{
 		rect	250,437,20,20
 		visible	1
 	}
-	bindDef b_6
+	windowDef b_6
 	{
 		rect	225,437,20,20
 		visible	1
 	}
-	bindDef b_5
+	windowDef b_5
 	{
 		rect	325,410,20,20
 		visible	1
 	}
-	bindDef b_4
+	windowDef b_4
 	{
 		rect	300,410,20,20
 		visible	1
