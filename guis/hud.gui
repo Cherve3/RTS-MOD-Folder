@@ -4,6 +4,7 @@ windowDef Desktop
 	rect	0,0,640,480
 	menugui	1
 	nocursor	0
+	buildMenu 0
 
 	onInit {
 		namedEvent "updateHealth";
@@ -80,16 +81,12 @@ windowDef Desktop
 
 	onNamedEvent hideBuildMenu {
 		set "build_menu::visible" "0";
+		buildMenu = 0;
 	}
 
 	onNamedEvent showBuildMenu {
-		if("build_menu::visible" == 0){
-			set "build_menu::visible" "1";
-			buildMenu = 1;
-		else{
-			set "build_menu::visible" "0";
-			buildMenu = 0;
-		}
+		set "build_menu::visible" "1";
+		buildMenu = 1;
 	}
 
 	onNamedEvent showBossBar {
