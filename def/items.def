@@ -51,6 +51,8 @@ entityDef item_default {
 	"inherit"				"item_triggersize_SP"
 
 	"editor_ignore"			"1"
+	
+	"price"					"0"
 }
 
 
@@ -98,6 +100,7 @@ entityDef item_comm
 	"editor_ignore"			"0"
 	
 	"fx_idle"				"effects/weapons/dmg/pickup.fx"
+	"price"					"400"
 }
 
 entityDef item_barracks {
@@ -105,18 +108,18 @@ entityDef item_barracks {
 	"editor_usage"		"Regeneration"
 
 	"model"				"models/pick_ups/mp_pickups/mp_regeneration.lwo"
+	"size"					"32 32 32"
+	"clipModel"			"1"
 	
 	"inv_name"			"Barracks"
 	"inv_icon"			"gfx/guis/hud/icons/item_regen.tga"
-	"mtr_simple_icon"	"gfx/guis/hud/icons/item_regen.tga"
 	"inv_armor"			"5"
-	"snd_acquire"			"sound/mp/pickups/regen_acquire.wav"
 
 	"editor_ignore"			"0"
 	
 	"fx_idle"			"effects/mp/regen"
 	
-	"net_syncPhysics"		"1"
+	"price"					"300"
 }
 
 entityDef item_depot
@@ -125,18 +128,14 @@ entityDef item_depot
 	"editor_usage"		"Guard"
 
 	"model" 			"models/pick_ups/mp_pickups/ctf_guard.lwo"
-	
+	"size"					"32 32 32"
+
 	"inv_name"			"Vehicle Depot"
 	"inv_icon"			"gfx/guis/hud/icons/item_guard.tga"
-	"mtr_simple_icon"	"gfx/guis/hud/icons/item_guard.tga"
-
-	"globalAcquireSound"		"0"
-	"snd_acquire"			"sound/vo/mp/9_99_360_8.wav"
 
 	"editor_ignore"			"0"
 	
-	"time"				"-1"
-	"unique"			"1"
+	"price"					"300"
 }
 
 // move to misc

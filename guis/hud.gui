@@ -76,7 +76,10 @@ windowDef Desktop
 	}
 
 	onNamedEvent updateResource {
-		
+		if ( "gui::resource_amount" < 0 )
+		{
+			resettime "health_amount" "0" ;
+		}
 	}
 
 	onNamedEvent hideBuildMenu {
@@ -123,7 +126,6 @@ windowDef Desktop
 
 	onNamedEvent showViewComments {
 		set "ViewComments::visible" "1";
-		fade
 	}
 
 	onNamedEvent hideViewComments {
