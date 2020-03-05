@@ -18,33 +18,55 @@ Control your units around the map and lead them to the enemy base to destroy it.
 If you die you lose.
 
 *************************************************
+Beginning in RTS-MOD
+*************************************************
+You will spawn at the beginning of the convoy2 map as in the story. You will be greeted by Tech
+Holtz who will give you nailgun mod(this is irrelevent no nailgun mod is given). You start off 
+with 500 resources enough to buy the command center and a miner. The miner will collect your 
+resource on the map when you command it to. Collect enough resource to buy the barracks and 
+place it onto the map to build soldiers.
 
-changelog:
-2/4/20
+*************************************************
+Controls
+*************************************************
+All Quake 4 Controls are the same unless stated otherwise
 
-blaster.cpp
-	- num_attack from 1 to 11
-machinegun.def
-	- spread from 2 to 5
-Machinegun.cpp
-	- altfirerate to firerate
+Switching weapons is moved from the number keys (1-0) to 
+letters in order on keyboard(T-P then G-L)
 
-2/8/20
-SysCVar.cpp
-	rm_thirdperson = 0 changed to 1
-	rm_thirdpersonrange = 80 changed to 200
-	rm_thirdpersonheight = 0 changed to 50
+Blaster			T
+Machine Gun		Y
+Shotgun			U
+Hyperblaster		I
+Grenade Launcher	O
+Nailgun			P
+Rocket Launcher		G
+railgun			H
+Lightning Gun		J
+Dark Matter Gun		K
+Napalm Gun		L
 
-2/10/20
-PlayerView.cpp
-	-commented thirdPerson bool line 518
-		-Allows HUD in Third person camera
+Opening the buy menu you will be greeted with a list of buildings to purchase.
+******You can only purchase a building with the buymenu open.******
 
-2/13/20
-	-tried to sync aim and bullet travel
+Buy Menu		B
 
-2/15/20
-	-edited ui in game and main menu
-2/21/20
-	adjusted third person camera 
-	enabled buymenu (doesnt showup)
+To confirm any purchase it will be in numeral order from left to right in the menu.
+To purchase the buildings you must have the required resources and to not have purchased one already.
+Command Center 		1
+Barracks		2
+Vehicle Depot		3
+
+To toggle placing a building onto the map you must have first purchased one and not placed one already.
+Drop Toggle		Q
+
+To confirm a drop it will be in numeral order from left to right in the menu.
+Command Center 		1
+Barracks		2
+Vehicle Depot		3
+
+
+bind "1" "machinegun"
+bind "2" "shotgun"
+bind "3" "medic"
+bind "4" "engineer"

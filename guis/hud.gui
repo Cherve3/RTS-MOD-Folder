@@ -4,7 +4,7 @@ windowDef Desktop
 	rect	0,0,640,480
 	menugui	1
 	nocursor	0
-	buildMenu 0
+	buildMenu	0
 
 	onInit {
 		namedEvent "updateHealth";
@@ -203,28 +203,29 @@ windowDef Desktop
 		textscale	0.4
 		font	"fonts/marine"
 		textstyle	2
-
 		windowDef build_commcenter
 		{
-			rect	2,29,103,68
+			rect	2,29,60,50
 			visible	1
 			bordersize	1
 			bordercolor	1,1,1,1
 			text	"Command Center"
 			textscale	0.2
 			font	"fonts/marine"
+			forecolor	1,1,1,1
+			textalign	1
 			windowDef price_comm
 			{
 				text	"Price: 400"
-				rect	35,58,34,11
+				rect	1,29,60,20
 				visible	1
 				forecolor	1,1,1,1
-				textscale	0.1
+				textscale	0.2
 			}
 		}
 		windowDef build_barracks
 		{
-			rect	106,29,77,68
+			rect	64,29,60,50
 			visible	1
 			bordersize	1
 			bordercolor	1,1,1,1
@@ -235,15 +236,15 @@ windowDef Desktop
 			{
 				text	"Price: 200"
 				forecolor	1,1,1,1
-				textscale	0.1
+				textscale	0.2
 				visible	1
 				font	"fonts/chain"
-				rect	21,56,36,11
+				rect	0,29,59,19
 			}
 		}
 		windowDef build_depot
 		{
-			rect	2,98,103,71
+			rect	126,29,58,50
 			visible	1
 			bordersize	1
 			bordercolor	1,1,1,1
@@ -253,10 +254,48 @@ windowDef Desktop
 			windowDef price_comm
 			{
 				text	"Price: 300"
-				rect	34,60,34,10
+				rect	0,29,56,18
 				visible	1
 				forecolor	1,1,1,1
-				textscale	0.1
+				textscale	0.2
+			}
+		}
+		windowDef build_miner
+		{
+			rect	2,80,60,50
+			visible	1
+			bordersize	1
+			bordercolor	1,1,1,1
+			text	"Miner"
+			textscale	0.2
+			font	"fonts/marine"
+			windowDef price_barr
+			{
+				text	"Price: 100"
+				forecolor	1,1,1,1
+				textscale	0.2
+				visible	1
+				font	"fonts/chain"
+				rect	0,29,59,19
+			}
+		}
+		windowDef build_soldier
+		{
+			rect	64,80,60,50
+			visible	1
+			bordersize	1
+			bordercolor	1,1,1,1
+			text	"Soldier"
+			textscale	0.2
+			font	"fonts/marine"
+			windowDef price_barr
+			{
+				text	"Price: 200"
+				forecolor	1,1,1,1
+				textscale	0.2
+				visible	1
+				font	"fonts/chain"
+				rect	0,29,59,19
 			}
 		}
 	}
@@ -301,7 +340,7 @@ windowDef Desktop
 	}
 	windowDef text_alert
 	{
-		rect	394,426,201,16
+		rect	368,441,269,16
 		visible	1
 		textscale	0.25
 		text	"gui::viewcomments"
@@ -370,7 +409,7 @@ windowDef Desktop
 	}
 	windowDef str_resource
 	{
-		rect	389,456,60,18
+		rect	368,459,60,18
 		visible	1
 		forecolor	1,1,1,1
 		text	"Resources:"
@@ -659,7 +698,7 @@ windowDef Desktop
 	}
 	windowDef resource_amount
 	{
-		rect	449,456,100,16
+		rect	428,459,100,16
 		visible	1
 		forecolor	1,1,1,1
 		text	"gui::resource_amount"

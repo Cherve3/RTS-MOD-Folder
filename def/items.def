@@ -89,13 +89,14 @@ entityDef item_objective {
 entityDef item_comm
 {
 	"inherit"				"item_default"
-	"editor_usage"				"Dark Matter Gun Ammo"
-
+	"editor_usage"			"command center"
+	"spawnclass"			"idItem"
 	"model"					"models/pick_ups/sp_pickups/sp_darkmatter.lwo"
-	"size"					"32 32 32"
-
-	"inv_name"				"#str_107419"
+	"size"					"64 64 64"
+	"noimpact"				"1"
+	"inv_name"				"command"
 	"inv_icon"				"gfx/guis/hud/icons/item_darkmatter.tga"
+	"inv_carry"				"1"
 	"inv_health"			"5"
 	"editor_ignore"			"0"
 	
@@ -104,35 +105,34 @@ entityDef item_comm
 }
 
 entityDef item_barracks {
-	"inherit"			"item_default"
-	"editor_usage"		"Regeneration"
-
-	"model"				"models/pick_ups/mp_pickups/mp_regeneration.lwo"
-	"size"					"32 32 32"
-	"clipModel"			"1"
+	"inherit"				"item_default"
+	"editor_usage"			"barracks"
+	"spawnclass"			"idItem"
+	"model"					"models/pick_ups/mp_pickups/mp_regeneration.lwo"
+	"size"					"64 64 64"
 	
-	"inv_name"			"Barracks"
-	"inv_icon"			"gfx/guis/hud/icons/item_regen.tga"
-	"inv_armor"			"5"
-
+	"inv_name"				"barracks"
+	"inv_icon"				"gfx/guis/hud/icons/item_regen.tga"
+	"inv_armor"				"5"
+	"inv_carry"				"1"
 	"editor_ignore"			"0"
 	
-	"fx_idle"			"effects/mp/regen"
+	"fx_idle"				"effects/mp/regen"
 	
 	"price"					"300"
 }
 
 entityDef item_depot
 {
-	"inherit"			"item_default"
-	"editor_usage"		"Guard"
+	"inherit"				"item_default"
+	"editor_usage"			"Guard"
+	"spawnclass"			"idItem"
+	"model" 				"models/pick_ups/mp_pickups/ctf_guard.lwo"
+	"size"					"64 64 64"
 
-	"model" 			"models/pick_ups/mp_pickups/ctf_guard.lwo"
-	"size"					"32 32 32"
-
-	"inv_name"			"Vehicle Depot"
-	"inv_icon"			"gfx/guis/hud/icons/item_guard.tga"
-
+	"inv_name"				"depot"
+	"inv_icon"				"gfx/guis/hud/icons/item_guard.tga"
+	"inv_carry"				"1"
 	"editor_ignore"			"0"
 	
 	"price"					"300"
