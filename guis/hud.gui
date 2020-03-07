@@ -343,6 +343,7 @@ windowDef Desktop
 		rect	368,441,269,16
 		visible	1
 		textscale	0.25
+		font "fonts/marine"
 		text	"gui::viewcomments"
 	}
 	windowDef b_2
