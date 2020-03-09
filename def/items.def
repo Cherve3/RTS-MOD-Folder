@@ -92,6 +92,7 @@ entityDef item_comm
 	"editor_usage"			"command center"
 	"spawnclass"			"idItem"
 	"model"					"models/pick_ups/sp_pickups/sp_darkmatter.lwo"
+	"itemclipmodel"			"models/pick_ups/sp_pickups/sp_darkmatter.lwo"
 	"size"					"64 64 64"
 	"noimpact"				"1"
 	"inv_name"				"command"
@@ -99,7 +100,7 @@ entityDef item_comm
 	"inv_carry"				"1"
 	"inv_health"			"5"
 	"editor_ignore"			"0"
-	
+	"canPickUp"				"0"
 	"fx_idle"				"effects/weapons/dmg/pickup.fx"
 	"price"					"400"
 }
@@ -109,6 +110,7 @@ entityDef item_barracks {
 	"editor_usage"			"barracks"
 	"spawnclass"			"idItem"
 	"model"					"models/pick_ups/mp_pickups/mp_regeneration.lwo"
+	"itemclipmodel"			"models/pick_ups/mp_pickups/mp_regeneration.lwo"
 	"size"					"64 64 64"
 	
 	"inv_name"				"barracks"
@@ -116,7 +118,7 @@ entityDef item_barracks {
 	"inv_armor"				"5"
 	"inv_carry"				"1"
 	"editor_ignore"			"0"
-	
+	"canPickUp"				"0"
 	"fx_idle"				"effects/mp/regen"
 	
 	"price"					"300"
@@ -125,17 +127,36 @@ entityDef item_barracks {
 entityDef item_depot
 {
 	"inherit"				"item_default"
-	"editor_usage"			"Guard"
+	"editor_usage"			"depot"
 	"spawnclass"			"idItem"
 	"model" 				"models/pick_ups/mp_pickups/ctf_guard.lwo"
+	"itemclipmodel" 		"models/pick_ups/mp_pickups/ctf_guard.lwo"
 	"size"					"64 64 64"
 
 	"inv_name"				"depot"
 	"inv_icon"				"gfx/guis/hud/icons/item_guard.tga"
 	"inv_carry"				"1"
 	"editor_ignore"			"0"
-	
+	"canPickUp"				"0"
+
 	"price"					"300"
+}
+
+entityDef item_resource
+{
+	"inherit"				"item_default"
+	"editor_usage"			"resource"
+	"spawnclass"			"idItem"
+	"model" 				"models/pick_ups/sp_pickups/sp_hyper_ammo.lwo"
+	"size"					"64 64 64"
+	"itemclipmodel" 		"models/pick_ups/sp_pickups/sp_hyper_ammo.lwo"
+	"inv_name"				"resource"
+	"inv_icon"				"gfx/guis/hud/icons/ammo_hyperblaster.tga"
+	"inv_carry"				"0"
+	"editor_ignore"			"0"
+	"canPickUp"				"0"
+
+	"price"					"0"
 }
 
 // move to misc

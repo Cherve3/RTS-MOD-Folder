@@ -20609,7 +20609,7 @@ windowDef Desktop
 			}
 
 			onAction {
-				consoleCMD "map convoy2" ;
+				consoleCMD "map game/convoy2" ;
 				
 				set "cmd" "play main_menu_selection" ;
 			}

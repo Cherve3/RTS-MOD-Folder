@@ -47,7 +47,7 @@ Dark Matter Gun		K
 Napalm Gun		L
 
 Opening the buy menu you will be greeted with a list of buildings to purchase.
-******You can only purchase a building with the buymenu open.******
+******You can only purchase a building or unit with the buymenu open.******
 
 Buy Menu		B
 
@@ -56,8 +56,10 @@ To purchase the buildings you must have the required resources and to not have p
 Command Center 		1
 Barracks		2
 Vehicle Depot		3
+Miner			4
+Soldier			5
 
-To toggle placing a building onto the map you must have first purchased one and not placed one already.
+To toggle placing a building onto the map Press Q. You must have first purchased one and not placed one already.
 Drop Toggle		Q
 
 To confirm a drop it will be in numeral order from left to right in the menu.
@@ -65,6 +67,8 @@ Command Center 		1
 Barracks		2
 Vehicle Depot		3
 
+With the buy menu closed and dropping toggled off
+The number buttons will select that type of unit
 
 bind "1" "machinegun"
 bind "2" "shotgun"
