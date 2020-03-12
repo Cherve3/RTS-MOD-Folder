@@ -2,7 +2,7 @@
 READ ME file for rtsmod
 by Michael Chervenak
 Created: 2/4/20
-latest edit: 2/21/20
+latest edit: 3/11/20
 *************************************************
 
 
@@ -18,13 +18,28 @@ Control your units around the map and lead them to the enemy base to destroy it.
 If you die you lose.
 
 *************************************************
+Using RTS-MOD
+*************************************************
+1. You must have a copy of Quake 4 installed.
+
+2. Go to the github link with my mod folder:
+	https://github.com/Cherve3/RTS-MOD-Folder
+
+3. Download and move the folder to the Quake 4 base directory. 
+	(This is where the Quake4.exe file and q4base folder is.) 
+ 
+4. Run Quake 4 and click the mods button on the main menu.
+	OR
+   Go to shortcut properties and add "+set fs_game rtsmod" at the end of the target box 
+*************************************************
 Beginning in RTS-MOD
 *************************************************
-You will spawn at the beginning of the convoy2 map as in the story. You will be greeted by Tech
-Holtz who will give you nailgun mod(this is irrelevent no nailgun mod is given). You start off 
-with 500 resources enough to buy the command center and a miner. The miner will collect your 
-resource on the map when you command it to. Collect enough resource to buy the barracks and 
-place it onto the map to build soldiers.
+You will spawn at the beginning of the Aquaducts(convoy2) map as in the story. You will be 
+greeted by Tech Holtz who will give you nailgun mod(this is irrelevent no nailgun mod is given).
+You start off with 500 resources enough to buy the command center and a miner. The miner will 
+collect your resource on the map when you command it to. Collect enough resource to buy the 
+barracks and place it onto the map to build soldiers. Continue collecting resources to build a
+vehicle depot and build an army. Take your army to seek and destroy the AI team.
 
 *************************************************
 Controls
@@ -67,10 +82,7 @@ Command Center 		1
 Barracks		2
 Vehicle Depot		3
 
-With the buy menu closed and dropping toggled off
-The number buttons will select that type of unit
+Left Clicking on a unit will select that unit so you can issue commands
+(Currently to issue a command click "1")
+** Not Fully Functional Yet**
 
-bind "1" "machinegun"
-bind "2" "shotgun"
-bind "3" "medic"
-bind "4" "engineer"

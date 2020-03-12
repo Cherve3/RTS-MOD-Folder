@@ -247,6 +247,16 @@ void floorDoorInit( entity initTrigger )
 }
 */
 
+void spawnResources(entity target_null){
+	entity resource;
+	
+	sys.setSpawnArg( "classname", "item_resource" );
+	sys.setSpawnArg( "origin", target_null.getOrigin());
+
+	resource = sys.spawn( "item_resource" );
+
+}
+
 void hh1()
 {
 	sys.trigger($monster_big_hh_tank_5);
@@ -1054,7 +1064,10 @@ void main()
 	thread strogg_dropship::bindMonsters( $daredevilDropship );
 	
 	$marine_cleaning_1.setTalkState(TALK_WAIT);		
-	
+
+	spawnResources(sys.getEntity("res_point_1"));
+	spawnResources(sys.getEntity("res_point_2"));
+
 	//sys.println("set health");
 	$vehicle_gev_6.setHealth(99999999999999999999999999999999999999);		// heh
 }
