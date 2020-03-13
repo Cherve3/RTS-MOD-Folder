@@ -1,6 +1,6 @@
 DewmAAS "1.08"
 
-2346120243
+2346119913
 
 settings
 {
@@ -13,6 +13,7 @@ settings
 	playerFlood = 0
 	allowSwimReachabilities = 0
 	allowFlyReachabilities = 0
+	generateAllFaces = 0
 	generateTacticalFeatures = 0
 	fileExtension = "aas250"
 	gravity = (0 0 -1050)

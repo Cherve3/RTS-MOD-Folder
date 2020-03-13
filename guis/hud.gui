@@ -222,6 +222,15 @@ windowDef Desktop
 				forecolor	1,1,1,1
 				textscale	0.2
 			}
+			windowDef button_num_1
+			{
+				text	"1"
+				forecolor	1,1,1,1
+				textscale	0.2
+				visible	1
+				font	"fonts/chain"
+				rect	0,-3,18,19
+			}
 		}
 		windowDef build_barracks
 		{
@@ -232,6 +241,8 @@ windowDef Desktop
 			text	"Barracks"
 			textscale	0.2
 			font	"fonts/marine"
+			forecolor	1,1,1,1
+			textalign	1
 			windowDef price_barr
 			{
 				text	"Price: 200"
@@ -240,6 +251,15 @@ windowDef Desktop
 				visible	1
 				font	"fonts/chain"
 				rect	0,29,59,19
+			}
+			windowDef button_num_2
+			{
+				text	"2"
+				forecolor	1,1,1,1
+				textscale	0.2
+				visible	1
+				font	"fonts/chain"
+				rect	-1,-3,16,19
 			}
 		}
 		windowDef build_depot
@@ -251,13 +271,24 @@ windowDef Desktop
 			text	"Vehicle Depot"
 			textscale	0.2
 			font	"fonts/marine"
-			windowDef price_comm
+			forecolor	1,1,1,1
+			textalign	1
+			windowDef price_depot
 			{
 				text	"Price: 300"
 				rect	0,29,56,18
 				visible	1
 				forecolor	1,1,1,1
 				textscale	0.2
+			}
+			windowDef button_num_3
+			{
+				text	"3"
+				forecolor	1,1,1,1
+				textscale	0.2
+				visible	1
+				font	"fonts/chain"
+				rect	-1,-3,14,19
 			}
 		}
 		windowDef build_miner
@@ -269,7 +300,9 @@ windowDef Desktop
 			text	"Miner"
 			textscale	0.2
 			font	"fonts/marine"
-			windowDef price_barr
+			forecolor	1,1,1,1
+			textalign	1
+			windowDef price_miner
 			{
 				text	"Price: 100"
 				forecolor	1,1,1,1
@@ -277,6 +310,15 @@ windowDef Desktop
 				visible	1
 				font	"fonts/chain"
 				rect	0,29,59,19
+			}
+			windowDef button_num_4
+			{
+				text	"4"
+				forecolor	1,1,1,1
+				textscale	0.2
+				visible	1
+				font	"fonts/chain"
+				rect	-1,-2,15,19
 			}
 		}
 		windowDef build_soldier
@@ -288,7 +330,9 @@ windowDef Desktop
 			text	"Soldier"
 			textscale	0.2
 			font	"fonts/marine"
-			windowDef price_barr
+			forecolor	1,1,1,1
+			textalign	1
+			windowDef price_soldier
 			{
 				text	"Price: 200"
 				forecolor	1,1,1,1
@@ -296,6 +340,45 @@ windowDef Desktop
 				visible	1
 				font	"fonts/chain"
 				rect	0,29,59,19
+			}
+			windowDef button_num_5
+			{
+				text	"5"
+				forecolor	1,1,1,1
+				textscale	0.2
+				visible	1
+				font	"fonts/chain"
+				rect	-1,-2,15,19
+			}
+		}
+		windowDef build_vehicle
+		{
+			rect	126,80,58,50
+			visible	1
+			bordersize	1
+			bordercolor	1,1,1,1
+			text	"Vehicle"
+			textscale	0.2
+			font	"fonts/marine"
+			forecolor	1,1,1,1
+			textalign	1
+			windowDef price_vehicle
+			{
+				text	"Price: 500"
+				forecolor	1,1,1,1
+				textscale	0.2
+				visible	1
+				font	"fonts/chain"
+				rect	0,29,59,19
+			}
+			windowDef button_num_6
+			{
+				text	"6"
+				forecolor	1,1,1,1
+				textscale	0.2
+				visible	1
+				font	"fonts/chain"
+				rect	-1,-2,15,19
 			}
 		}
 	}
@@ -340,10 +423,10 @@ windowDef Desktop
 	}
 	windowDef text_alert
 	{
-		rect	368,441,269,16
+		rect	368,441,271,16
 		visible	1
 		textscale	0.25
-		font "fonts/marine"
+		font	"fonts/marine"
 		text	"gui::viewcomments"
 	}
 	windowDef b_2
