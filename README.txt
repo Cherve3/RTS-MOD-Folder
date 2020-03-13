@@ -87,6 +87,7 @@ Barracks		2
 Vehicle Depot		3
 
 Left Clicking on a unit when his name is visible will select that unit so you can issue commands.
-Click 1 and the unit will move toward the players location at button press.
+Hold down 1 and the unit will move toward the players location.
+Deselect All Units	E
 ** Not Fully Functional Yet**
 

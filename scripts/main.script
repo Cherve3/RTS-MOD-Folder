@@ -19,6 +19,8 @@ This is the main script that is loaded before any level scripts load.
 #include "scripts/common/tramCar.script"
 #include "scripts/common/repair_bot.script"
 #include "scripts/common/strogg_dropship.script"
+
+//Mod Scripts
 #include "scripts/common/miner.script"
 
 // Map Scripts

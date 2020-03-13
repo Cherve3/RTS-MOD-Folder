@@ -257,6 +257,63 @@ void spawnResources(entity target_null){
 
 }
 
+void spawnEnemyBase(){
+	entity enemyAI = $monster_rts_1;
+
+	sys.setSpawnArg("classname", "Enemy Base");
+	sys.setSpawnArg("origin", enemyAI.getOrigin());
+	sys.setSpawnArg("team", "1");
+	sys.println("enemy resource: "+enemyAI.getIntKey("resource_amount"));
+	if(enemyAI.getIntKey("resource_amount") >= 400 && enemyAI.getIntKey("hasCommand") == 0){
+		sys.spawn("item_comm");
+		enemyAI.setKey("resource_amount", enemyAI.getIntKey("resource_amount") - 400);
+		enemyAI.setKey("hasCommand", 1);
+		sys.println("enemy resource: "+enemyAI.getIntKey("resource_amount"));
+	}
+}
+
+void spawnEnemyBarracks(){
+	entity enemyAI = $monster_rts_1;
+
+	sys.setSpawnArg("classname", "Enemy Barracks");
+	sys.setSpawnArg("origin", enemyAI.getOrigin());
+	sys.setSpawnArg("team", "1");
+
+	if(enemyAI.getIntKey("resource_amount") >= 300 && enemyAI.getIntKey("hasCommand") == 0){
+		sys.spawn("item_barracks");
+		enemyAI.setKey("resource_amount", enemyAI.getIntKey("resource_amount") - 300);
+		enemyAI.setKey("hasBarracks", 1);
+	}
+}
+
+void spawnEnemyDepot(){
+	entity enemyAI = $monster_rts_1;
+
+	sys.setSpawnArg("classname", "Enemy Vehicle Depot");
+	sys.setSpawnArg("origin", enemyAI.getOrigin());
+	sys.setSpawnArg("team", "1");
+
+	if(enemyAI.getIntKey("resource_amount") >= 300 && enemyAI.getIntKey("hasDepot") == 0){
+		sys.spawn("item_depot");
+		enemyAI.setKey("resource_amount", enemyAI.getIntKey("resource_amount") - 300);
+		enemyAI.setKey("hasDepot", 1);
+	}
+}
+
+void spawnEnemyMiner(){
+	entity enemyAI = $monster_rts_1;
+
+	sys.setSpawnArg("classname", "Enemy Miner");
+	sys.setSpawnArg("origin", enemyAI.getOrigin()+'10 10 10');
+	sys.setSpawnArg("team", "1");
+	sys.println("enemy resource: "+enemyAI.getIntKey("resource_amount"));
+	if(enemyAI.getIntKey("resource_amount") >= 100 && enemyAI.getIntKey("hasCommand") == 1){
+		sys.spawn("miner");
+		enemyAI.setKey("resource_amount", enemyAI.getIntKey("resource_amount") - 100);
+		sys.println("enemy resource: "+enemyAI.getIntKey("resource_amount"));
+	}
+}
+
 void hh1()
 {
 	sys.trigger($monster_big_hh_tank_5);
@@ -1042,6 +1099,9 @@ void showTerrain()
 	spawnResources(sys.getEntity("res_point_2"));
 	spawnResources(sys.getEntity("res_point_3"));
 	spawnResources(sys.getEntity("res_point_4"));
+
+	spawnEnemyBase();
+	spawnEnemyMiner();
 }
 
 

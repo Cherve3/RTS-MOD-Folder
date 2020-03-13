@@ -755,4 +755,7 @@ entityDef monster_rts
 {
 	"inherit"							"monster_tactical_mgun"
 	"resource_amount"					"500"
+	"hasCommand"						"0"
+	"hasBarracks"						"0"
+	"hasdepot"							"0"
 }
